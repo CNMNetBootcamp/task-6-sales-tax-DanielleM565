@@ -20,7 +20,7 @@ namespace Task6
 
                 //output
                 Console.WriteLine(textType);
-
+                
                 Console.WriteLine("Do you wish to calculate another order? (Y)es or (N)o");
                 continueAnswer = Console.ReadLine();
                 
@@ -31,6 +31,7 @@ namespace Task6
         }
         public static string CalculateTax()
         {
+            //TODO: Initialize all your variables
             double orderTotal;
             double stateTax = 0.03;
             double localTax = 0.05;
@@ -41,7 +42,8 @@ namespace Task6
             {
                 Console.WriteLine("What is your order total?");
             } while (!Double.TryParse(Console.ReadLine(), out orderTotal));
-
+            //TODO: These variables are confusing. You already declared similar types above
+            // Distinguish between them and what makes them different. Context is very difficult to code to.
             double stateTaxAmount; // 3% of order total
             double localTaxAmount; //5% of order total
 
