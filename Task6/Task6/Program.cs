@@ -8,13 +8,11 @@ namespace Task6
         {
             //setup
             string continueAnswer = "Y"; //repeat code or close program
-            string textType;
+            string textType; //basically response
 
             //input
             do
             {
-                //input
-
                 //process
                 textType = CalculateTax();
 
@@ -23,19 +21,17 @@ namespace Task6
                 
                 Console.WriteLine("Do you wish to calculate another order? (Y)es or (N)o");
                 continueAnswer = Console.ReadLine();
-                
 
-            } while (continueAnswer == "Y"); // use .ToUpper
-
-             
+            } while (continueAnswer.ToUpper() == "Y"); 
+ 
         }
         public static string CalculateTax()
         {
             //TODO: Initialize all your variables
             double orderTotal;
-            double stateTax = 0.03;
-            double localTax = 0.05;
-            double grandTotal = 0.00; //order total plus stat and local tax amount
+            double stateTax = 0.03; //magic number
+            double localTax = 0.05; //magic number
+            double grandTotal = 0.00; //order total plus state and local tax amount
             string response;
 
             do
@@ -44,14 +40,13 @@ namespace Task6
             } while (!Double.TryParse(Console.ReadLine(), out orderTotal));
             //TODO: These variables are confusing. You already declared similar types above
             // Distinguish between them and what makes them different. Context is very difficult to code to.
-            double stateTaxAmount; // 3% of order total
-            double localTaxAmount; //5% of order total
+            //Yea I thought that was kind of redundant too
 
-            stateTaxAmount = orderTotal * stateTax;
-            localTaxAmount = orderTotal * localTax;
-            grandTotal = orderTotal + stateTaxAmount + localTaxAmount;
+            stateTax = orderTotal * stateTax;
+            localTax = orderTotal * localTax;
+            grandTotal = orderTotal + stateTax + localTax;
 
-            response = "Your order subtotal is " + orderTotal + " with a state tax of " + stateTaxAmount + ", a local tax of " + localTaxAmount + ", and a grand total of $" + grandTotal;
+            response = "Your order subtotal is " + orderTotal + " with an added state tax of " + stateTax + ", and a local added tax of " + localTax + ", making the grand total of $" + grandTotal;
 
             return (response);
         }
